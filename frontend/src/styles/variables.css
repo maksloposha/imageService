@@ -1,0 +1,12 @@
+
+:root {
+    --primary-color: #007bff;
+    --primary-color-hover: #0056b3;
+    --background-color: #f9f9f9;
+    --button-bg-color: #007bff;
+    --button-hover-color: #0056b3;
+    --drag-zone-bg-color: #f0f8ff;
+    --drag-zone-hover-bg-color: #e6f7ff;
+    --text-input-border-color: #ccc;
+    --text-input-focus-border-color: #007bff;
+}

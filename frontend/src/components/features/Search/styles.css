@@ -1,0 +1,29 @@
+
+.search-section {
+    margin: 20px 0;
+}
+
+.search-section input[type="text"] {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid var(--text-input-border-color);
+    border-radius: 5px;
+}
+
+.search-section input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.search-section button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-section button:hover {
+    background-color: var(--primary-color-hover);
+}

@@ -3,7 +3,7 @@ import Button from '../../common/Button';
 import './styles.css';
 import api from "../../../utils/api";
 
-const ImageUpload = ({ setAllImages, setError, fetchAllImages, setLoadingAllImages}) => {
+const ImageUpload = ({ setAllImages, setError, fetchAllImages, setLoadingAllImages }) => {
     const [file, setFile] = useState(null);
     const [uploading, setUploading] = useState(false);
     const [error, setErrorState] = useState(null);
@@ -12,6 +12,17 @@ const ImageUpload = ({ setAllImages, setError, fetchAllImages, setLoadingAllImag
     const handleFileUpload = async () => {
         if (!file) {
             setErrorState("Please select a file to upload.");
+            return;
+        }
+
+        if (!file.type.startsWith('image/')) {
+            setErrorState("Only image files are allowed.");
+            return;
+        }
+
+       const MAX_FILE_SIZE = 5 * 1024 * 1024;
+        if (file.size > MAX_FILE_SIZE) {
+            setErrorState("File size exceeds the 5MB limit.");
             return;
         }
 
@@ -27,7 +38,6 @@ const ImageUpload = ({ setAllImages, setError, fetchAllImages, setLoadingAllImag
                     "Content-Type": "multipart/form-data"
                 }
             });
-
 
             await fetchAllImages(setAllImages, setError, setLoadingAllImages);
             setFile(null);
